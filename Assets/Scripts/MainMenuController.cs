@@ -14,4 +14,10 @@ public class MainMenuController : MonoBehaviour
 		//Loads the Level Selection Menu
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelSelection");
 	}
+
+    public void ButtonHandlerQuit()
+    {
+        Application.Quit();
+    }
+
 }
