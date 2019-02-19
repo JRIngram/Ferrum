@@ -8,6 +8,11 @@ public class LevelSelectorController : MonoBehaviour
     public void ButtonHandlerBackToMainMenu()
     {
         //Loads the Level Selection Menu
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Menu");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    public void ButtonHandlerLevel1()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
     }
 }

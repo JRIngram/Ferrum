@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void ButtonHandlerPlay(){
 		//Will load a new level!
 		//AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
