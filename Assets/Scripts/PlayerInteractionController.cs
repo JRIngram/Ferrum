@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerInteractionController : MonoBehaviour {
@@ -22,20 +23,33 @@ public class PlayerInteractionController : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(centreOfScreenRay, out hit, distanceToFireRay))
         {
-            //ToggleSelectedCursor(true);
-            if (Input.GetMouseButtonDown(0))
+            GameObject hitObject = hit.transform.gameObject;
+            if (hitObject.tag == "Enemy")
             {
-                Debug.Log("Raycast hit: " + hit.transform.name);
-                GameObject hitObject = hit.transform.gameObject;
-                if (hitObject.tag == "Enemy") {
-                    hitObject.GetComponent<BasicRobotController>().onHit();
-                    Debug.Log(hitObject);
-                    Debug.Log("Bang bang!");
-                    //hitObject.onHit();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    crosshair.color = Color.red;
+                    Debug.Log("Raycast hit: " + hit.transform.name);
+                    if (hitObject.tag == "Enemy")
+                    {
+                        hitObject.GetComponent<BasicRobotController>().onHit();
+                        Debug.Log(hitObject);
+                        Debug.Log("Bang bang!");
+                        //hitObject.onHit();
+                    }
                 }
-
-            }  
+                ToggleSelectedCursor(true);
+            }
+            else
+            {
+                ToggleSelectedCursor(false);
+            } 
         }
+        else
+        {
+            ToggleSelectedCursor(false);
+        }
+
     }
 
     void GraphicsRaycasts()    {
@@ -68,10 +82,10 @@ public class PlayerInteractionController : MonoBehaviour {
     {
         if (interactable)
         {
-            crosshair.sprite = crosshairSelectable;
+            crosshair.color = Color.yellow;
         }
         else {
-            crosshair.sprite = crosshairImage;
+            crosshair.color = Color.green;
         }
     }
 }
