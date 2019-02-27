@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BasicRobotController : MonoBehaviour
 {
+
+    private int health = 100;
     public void onHit() {
+        health = health - 50;
         Debug.Log("YAAAAAAAAAOW");
-        Destroy(gameObject);
+        if(health == 0){
+            Destroy(gameObject);
+        }
     }
 }

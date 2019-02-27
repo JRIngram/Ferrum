@@ -13,7 +13,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ButtonHandlerPlay(){
 		//Will load a new level!
-		//AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
 	}
 	
 	public void ButtonHandlerLevel(){
