@@ -9,6 +9,7 @@ public class PlayerInteractionController : MonoBehaviour {
     public Sprite crosshairSelectable;
     public Image crosshair;
     public GraphicRaycaster graphicRaycaster;
+    private int score; 
 
     void Update()
     {
@@ -32,10 +33,12 @@ public class PlayerInteractionController : MonoBehaviour {
                     Debug.Log("Raycast hit: " + hit.transform.name);
                     if (hitObject.tag == "Enemy")
                     {
-                        hitObject.GetComponent<BasicRobotController>().onHit();
-                        Debug.Log(hitObject);
-                        Debug.Log("Bang bang!");
-                        //hitObject.onHit();
+                        bool enemyKilled = hitObject.GetComponent<BasicRobotController>().onHit();
+                        if (enemyKilled) {
+                            setPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);
+                        }
+                        Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
+                        scoreHUD.text = "Score: " + this.score;
                     }
                 }
                 ToggleSelectedCursor(true);
@@ -87,5 +90,9 @@ public class PlayerInteractionController : MonoBehaviour {
         else {
             crosshair.color = Color.green;
         }
+    }
+
+    void setPlayerScore(int scoreUpdate){
+        this.score += scoreUpdate;
     }
 }
