@@ -9,11 +9,16 @@ public class PlayerInteractionController : MonoBehaviour {
     public Sprite crosshairSelectable;
     public Image crosshair;
     public GraphicRaycaster graphicRaycaster;
-    private int score; 
+    private int score;
 
     void Update()
     {
         PhysicsRaycasts();
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioSource laserGun = GameObject.Find("LaserGunAudio").GetComponent<AudioSource>();
+            laserGun.Play();
+        }
     }
 
     void PhysicsRaycasts()
@@ -29,19 +34,22 @@ public class PlayerInteractionController : MonoBehaviour {
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    crosshair.color = Color.red;
+                    StartCoroutine(ToggleHitEnemyCursor());
                     Debug.Log("Raycast hit: " + hit.transform.name);
                     if (hitObject.tag == "Enemy")
                     {
                         bool enemyKilled = hitObject.GetComponent<BasicRobotController>().onHit();
-                        if (enemyKilled) {
+                        if (enemyKilled)
+                        {
                             setPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);
                         }
                         Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
                         scoreHUD.text = "Score: " + this.score;
                     }
                 }
-                ToggleSelectedCursor(true);
+                else {
+                    ToggleSelectedCursor(true);
+                }
             }
             else
             {
@@ -52,7 +60,6 @@ public class PlayerInteractionController : MonoBehaviour {
         {
             ToggleSelectedCursor(false);
         }
-
     }
 
     void GraphicsRaycasts()    {
@@ -90,6 +97,12 @@ public class PlayerInteractionController : MonoBehaviour {
         else {
             crosshair.color = Color.green;
         }
+    }
+
+    IEnumerator ToggleHitEnemyCursor() {
+        crosshair.color = Color.red;
+        Debug.Log("AM HIT");
+        yield return new WaitForSeconds(10f);
     }
 
     void setPlayerScore(int scoreUpdate){
