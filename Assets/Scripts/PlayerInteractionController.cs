@@ -35,7 +35,7 @@ public class PlayerInteractionController : MonoBehaviour {
                 if (Input.GetMouseButtonDown(0))
                 {
                     StartCoroutine(ToggleHitEnemyCursor());
-                    Debug.Log("Raycast hit: " + hit.transform.name);
+                    //Debug.Log("Raycast hit: " + hit.transform.name);
                     if (hitObject.tag == "Enemy")
                     {
                         bool enemyKilled = hitObject.GetComponent<BasicRobotController>().onHit();
@@ -101,7 +101,6 @@ public class PlayerInteractionController : MonoBehaviour {
 
     IEnumerator ToggleHitEnemyCursor() {
         crosshair.color = Color.red;
-        Debug.Log("AM HIT");
         yield return new WaitForSeconds(10f);
     }
 
