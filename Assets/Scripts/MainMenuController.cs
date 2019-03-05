@@ -12,9 +12,9 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void ButtonHandlerPlay(){
-		//Will load a new level!
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
-	}
+        //Will load a new level!
+        StartCoroutine(noiseThenLoadLevel());
+    }
 	
 	public void ButtonHandlerLevel(){
 		//Loads the Level Selection Menu
@@ -26,4 +26,10 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
+    IEnumerator noiseThenLoadLevel() {
+        AudioSource playNoise = GameObject.Find("PlayNoise").GetComponent<AudioSource>();
+        playNoise.Play();
+        yield return new WaitForSeconds(playNoise.clip.length);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
+    }
 }
