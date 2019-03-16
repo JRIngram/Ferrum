@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BasicRobotController : MonoBehaviour
 {
-    public int scoreValue;
+    public int scoreValue = 100;
     private int health = 100;
     public bool onHit() {
         health = health - 50;

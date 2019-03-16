@@ -15,4 +15,14 @@ public class LevelSelectorController : MonoBehaviour
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
     }
+
+    public void ButtonHandlerLevel2()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level2");
+    }
+
+    public void ButtonHandlerLevel3()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level3");
+    }
 }
