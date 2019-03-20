@@ -35,63 +35,72 @@ public class BasicRobotController : MonoBehaviour
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
-        next_waypoint = 0;
         navMeshAgent.stoppingDistance = 2.0f;
         if (waypoints.Length == 0)
             Debug.LogError("Error: list of waypoints is empty.");
+        navMeshAgent.SetDestination(waypoints[0].position);
     }
 
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
         Vector3 targetDir = target.position - transform.position;
         float angle = Vector3.Angle(targetDir, transform.forward);
-        if (navMeshAgent.remainingDistance <= distanceToStartChasingTarget && angle < 90.0f)
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget <= distanceToStartChasingTarget && angle < 180.0f && target.tag == "Player")
+        {
+            state = AgentState.Chasing;
             Chase();
+        }
         else if (state == AgentState.Idle)
+        {
             Idle();
+        }
         else if (state == AgentState.Patrolling)
             Patrol();
+        else {
+            state = AgentState.Idle;
+        }
     }
 
     void Chase()
-//TODO NEED TO MAKE CHASING A BIT MORE INTELLIGENT.
     {
-        if (navMeshAgent.speed != 5.0f)
+        navMeshAgent.isStopped = false;
+        if (navMeshAgent.speed != 7.5f)
         {
             navMeshAgent.speed = 7.5f;
-
         }
         animController.SetFloat(speedHashId, 7.5f);
         navMeshAgent.SetDestination(target.position);
-        Vector3 targetDir = target.position - transform.position;
-        float angle = Vector3.Angle(targetDir, transform.forward);
-        navMeshAgent.isStopped = false;
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {
             animController.SetTrigger(attackHashId);
+            Debug.Log("ATTACK");
         }
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             Idle();
+        }
+        if (navMeshAgent.remainingDistance > distanceToStartChasingTarget) {
+            state = AgentState.Idle;
         }
     }
 
     void Idle()
     {
         animController.SetFloat(speedHashId, 0.0f);
+        navMeshAgent.speed = 0.0f;
         navMeshAgent.isStopped = true;
     }
 
     void Patrol()
     {
-        if (navMeshAgent.speed != 3.5f)
+        if (navMeshAgent.speed != 5.0f)
         {
-            navMeshAgent.speed = 3.5f;
+            navMeshAgent.speed = 5.0f;
         }
-        animController.SetFloat(speedHashId, 3.5f);
+        animController.SetFloat(speedHashId, 5.0f);
         navMeshAgent.isStopped = false;
-        if (navMeshAgent.remainingDistance < distanceToStartHeadingToNextWaypoint)
+        if (navMeshAgent.remainingDistance <= distanceToStartHeadingToNextWaypoint)
         {
             Debug.Log(waypoints[next_waypoint]);
             next_waypoint = (next_waypoint + 1) % waypoints.Length;
