@@ -8,9 +8,10 @@ public class EndPadScript : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player") {
-            Debug.Log("Player has stayed in the the building!!!");
-            Debug.Log("Level completed!!!");
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+            int currentLevel = GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel();
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(currentLevel + 1);
+            Debug.Log(GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel());
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelComplete");
         }
     }
 }

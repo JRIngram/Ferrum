@@ -1343,6 +1343,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1686098502}
+    - target: {fileID: 5652037376283202686, guid: 48cd6b1ed295d004d9506e2309636b0a,
+        type: 3}
+      propertyPath: distanceToStartChasingTarget
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cd6b1ed295d004d9506e2309636b0a, type: 3}
 --- !u!1001 &6425583902818643372

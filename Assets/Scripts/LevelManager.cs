@@ -12,7 +12,10 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateLevel(int newLevel) {
         level = newLevel;
-        Debug.Log("LEVEL NOW " + level);
+    }
+
+    public int GetLevel() {
+        return level;
     }
 
 }
