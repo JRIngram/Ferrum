@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ButtonHandlerPlay(){
         //Will load a new level!
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
         StartCoroutine(noiseThenLoadLevel());
     }
 	

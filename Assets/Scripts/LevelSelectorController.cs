@@ -13,16 +13,19 @@ public class LevelSelectorController : MonoBehaviour
 
     public void ButtonHandlerLevel1()
     {
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
     }
 
     public void ButtonHandlerLevel2()
     {
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(2);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level2");
     }
 
     public void ButtonHandlerLevel3()
     {
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(3);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level3");
     }
 }
