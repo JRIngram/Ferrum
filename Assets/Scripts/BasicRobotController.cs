@@ -35,7 +35,7 @@ public class BasicRobotController : MonoBehaviour
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
-        navMeshAgent.stoppingDistance = 2.0f;
+        navMeshAgent.stoppingDistance = 7.5f;
         if (waypoints.Length == 0)
             Debug.LogError("Error: list of waypoints is empty.");
         navMeshAgent.SetDestination(waypoints[0].position);
@@ -64,21 +64,26 @@ public class BasicRobotController : MonoBehaviour
 
     void Chase()
     {
-        navMeshAgent.isStopped = false;
-        if (navMeshAgent.speed != 7.5f)
+        if (navMeshAgent.speed != 10.0f)
         {
-            navMeshAgent.speed = 7.5f;
+            navMeshAgent.speed = 10.0f;
         }
-        animController.SetFloat(speedHashId, 7.5f);
+        animController.SetFloat(speedHashId, 10.0f);
         navMeshAgent.SetDestination(target.position);
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {
             animController.SetTrigger(attackHashId);
             Debug.Log("ATTACK");
+            //animController.ResetTrigger(attackHashId);
         }
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             Idle();
+            navMeshAgent.isStopped = true;
+        }
+        else
+        {
+            navMeshAgent.isStopped = false;
         }
         if (navMeshAgent.remainingDistance > distanceToStartChasingTarget) {
             state = AgentState.Idle;
