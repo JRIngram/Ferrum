@@ -10,6 +10,12 @@ public class PlayerInteractionController : MonoBehaviour {
     public Image crosshair;
     public GraphicRaycaster graphicRaycaster;
     private int score;
+    private float health;
+
+    private void Awake()
+    {
+        this.health = 100.0f;
+    }
 
     void Update()
     {
@@ -106,5 +112,19 @@ public class PlayerInteractionController : MonoBehaviour {
 
     void setPlayerScore(int scoreUpdate){
         this.score += scoreUpdate;
+    }
+
+    public void getHit(float damageTaken) {
+        Debug.Log("GOT HIT");
+        Debug.Log(damageTaken);
+        Debug.Log(this.health);
+        this.health = this.health - damageTaken;
+        UpdateHealthGUI();
+    }
+
+    void UpdateHealthGUI()
+    {
+        Text scoreHUD = GameObject.Find("HealthHUD").GetComponent<Text>();
+        scoreHUD.text = "Health: " + this.health;
     }
 }

@@ -11,6 +11,7 @@ public class BasicRobotController : MonoBehaviour
     private int health = 100;
     public AgentState state;
     public Transform[] waypoints;
+    public float damage;
     private NavMeshAgent navMeshAgent;
     private Animator animController;
     private int speedHashId;
@@ -35,7 +36,7 @@ public class BasicRobotController : MonoBehaviour
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
-        navMeshAgent.stoppingDistance = 7.5f;
+        navMeshAgent.stoppingDistance = 3.0f;
         if (waypoints.Length == 0)
             Debug.LogError("Error: list of waypoints is empty.");
         navMeshAgent.SetDestination(waypoints[0].position);
@@ -110,6 +111,15 @@ public class BasicRobotController : MonoBehaviour
             Debug.Log(waypoints[next_waypoint]);
             next_waypoint = (next_waypoint + 1) % waypoints.Length;
             navMeshAgent.SetDestination(waypoints[next_waypoint].position);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        BoxCollider col = GetComponentInChildren<BoxCollider>();
+        if (other.tag == "Player")
+        {
+            Debug.Log("HIT HTI HIT MOAOCIMN");
+            other.GetComponent<PlayerInteractionController>().getHit(damage);
         }
     }
 
