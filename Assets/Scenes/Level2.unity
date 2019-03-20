@@ -264,8 +264,31 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 783545768}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1107230651, guid: b573edfe0c22a7f418c8e613dfb21653, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b573edfe0c22a7f418c8e613dfb21653, type: 3}
+--- !u!1 &640903867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4722949209358288908, guid: b573edfe0c22a7f418c8e613dfb21653,
+    type: 3}
+  m_PrefabInstance: {fileID: 640903866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &640903868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640903867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeba73801427cc64a853d01eec742c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 0}
+  crosshairSelectable: {fileID: 0}
+  crosshair: {fileID: 783545768}
+  graphicRaycaster: {fileID: 0}
 --- !u!1 &716802841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 3b4bbe2fcef895d4b82e3a9752a7a285,
