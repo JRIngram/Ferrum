@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -120,6 +121,9 @@ public class PlayerInteractionController : MonoBehaviour {
         Debug.Log(this.health);
         this.health = this.health - damageTaken;
         UpdateHealthGUI();
+        if (this.health <= 0) {
+            SceneManager.LoadSceneAsync("Death");
+        }
     }
 
     void UpdateHealthGUI()
