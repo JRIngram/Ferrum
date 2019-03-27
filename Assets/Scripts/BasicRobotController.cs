@@ -36,10 +36,10 @@ public class BasicRobotController : MonoBehaviour
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
-        navMeshAgent.stoppingDistance = 3.0f;
         if (waypoints.Length == 0)
             Debug.LogError("Error: list of waypoints is empty.");
         navMeshAgent.SetDestination(waypoints[0].position);
+        distanceToStartAttackingTarget = navMeshAgent.stoppingDistance;
     }
 
     void Update()
@@ -65,28 +65,45 @@ public class BasicRobotController : MonoBehaviour
 
     void Chase()
     {
-        if (navMeshAgent.speed != 10.0f)
-        {
-            navMeshAgent.speed = 10.0f;
-        }
         animController.SetFloat(speedHashId, 10.0f);
         navMeshAgent.SetDestination(target.position);
+
+        //Attack if close to player
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {
+            Debug.Log(navMeshAgent.remainingDistance);
+            navMeshAgent.speed = 0.0f;
+            animController.SetFloat(speedHashId, 0.0f);
             animController.SetTrigger(attackHashId);
             Debug.Log("ATTACK");
-            //animController.ResetTrigger(attackHashId);
         }
+
+        //Continue chasing if not close to player
+        else {
+            Debug.Log("STOP YO ATTACKING; START YO CHASIN");
+            //animController.ResetTrigger(attackHashId);
+            if (navMeshAgent.speed != 10.0f)
+            {
+                navMeshAgent.speed = 10.0f;
+                animController.SetFloat(speedHashId, 10.0f);
+            }
+            navMeshAgent.isStopped = false;
+        }
+
+        /*
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            Idle();
+            Debug.Log("GO IDLE");
+            state = AgentState.Idle;
             navMeshAgent.isStopped = true;
         }
         else
         {
             navMeshAgent.isStopped = false;
         }
+        */
         if (navMeshAgent.remainingDistance > distanceToStartChasingTarget) {
+            Debug.Log("GOING IDLE");
             state = AgentState.Idle;
         }
     }

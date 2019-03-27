@@ -1346,7 +1346,27 @@ PrefabInstance:
     - target: {fileID: 5652037376283202686, guid: 48cd6b1ed295d004d9506e2309636b0a,
         type: 3}
       propertyPath: distanceToStartChasingTarget
-      value: 50
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652037376283202686, guid: 48cd6b1ed295d004d9506e2309636b0a,
+        type: 3}
+      propertyPath: distanceToStartAttackingTarget
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652037376283202686, guid: 48cd6b1ed295d004d9506e2309636b0a,
+        type: 3}
+      propertyPath: distanceToStartHeadingToNextWaypoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652037376283202687, guid: 48cd6b1ed295d004d9506e2309636b0a,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652037376283202687, guid: 48cd6b1ed295d004d9506e2309636b0a,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cd6b1ed295d004d9506e2309636b0a, type: 3}
