@@ -36,6 +36,7 @@ public class BasicRobotController : MonoBehaviour
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
+        this.target = GameObject.Find("Player").transform;
         if (waypoints.Length == 0)
             Debug.LogError("Error: list of waypoints is empty.");
         navMeshAgent.SetDestination(waypoints[0].position);

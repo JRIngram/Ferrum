@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 5652037376283202687}
   - component: {fileID: 5652037376283202682}
   m_Layer: 0
-  m_Name: BasicEnemyRobot 1
+  m_Name: BasicEnemyRobot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   damage: 10
   distanceToStartHeadingToNextWaypoint: 3
   target: {fileID: 0}
-  distanceToStartChasingTarget: 15
+  distanceToStartChasingTarget: 30
   distanceToStartAttackingTarget: 3
 --- !u!195 &5652037376283202687
 NavMeshAgent:
