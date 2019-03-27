@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -116,9 +117,11 @@ public class SaveGameController : MonoBehaviour
             newRobot.transform.rotation = state.rotation;
             newRobot.GetComponent<BasicRobotController>().setHealth(state.health);
             newRobot.GetComponent<BasicRobotController>().state = state.state;
+            newRobot.GetComponent<NavMeshAgent>().Warp(new Vector3(newRobot.transform.position.x, newRobot.transform.position.y + 1, newRobot.transform.position.z));
         }
 
         this.loadingLevel = false;
+        Debug.Log("DONE LOADING!");
     }
 
     public bool GetLoadingLevel() {
