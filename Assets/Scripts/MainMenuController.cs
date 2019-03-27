@@ -16,8 +16,12 @@ public class MainMenuController : MonoBehaviour
         GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
         StartCoroutine(noiseThenLoadLevel());
     }
-	
-	public void ButtonHandlerLevel(){
+
+    public void ButtonHandlerLoad() {
+        GameObject.Find("SaveManager").GetComponent<SaveGameController>().LoadLevel();
+    }
+
+    public void ButtonHandlerLevel(){
 		//Loads the Level Selection Menu
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelSelection");
 	}

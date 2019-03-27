@@ -4,11 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum AgentState
+{
+    Idle = 0,
+    Patrolling,
+    Chasing
+}
+
+[Serializable]
+public struct RobotState {
+    public Vector3 position;
+    public Quaternion rotation;
+    public float health;
+    public AgentState state;
+
+    public RobotState(Vector3 position, Quaternion rotation, float health, AgentState state) {
+        this.position = position;
+        this.rotation = rotation;
+        this.health = health;
+        this.state = state;
+    }
+}
 
 public class BasicRobotController : MonoBehaviour
 {
     public int scoreValue = 100;
-    private int health = 100;
+    private float health = 100;
     public AgentState state;
     public Transform[] waypoints;
     public float damage;
@@ -22,13 +43,7 @@ public class BasicRobotController : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float distanceToStartChasingTarget;
     [SerializeField] private float distanceToStartAttackingTarget;
-
-    public enum AgentState
-    {
-        Idle = 0,
-        Patrolling,
-        Chasing
-    }
+    private RobotState robotState;
 
     void Awake()
     {
@@ -72,17 +87,13 @@ public class BasicRobotController : MonoBehaviour
         //Attack if close to player
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {
-            Debug.Log(navMeshAgent.remainingDistance);
             navMeshAgent.speed = 0.0f;
             animController.SetFloat(speedHashId, 0.0f);
             animController.SetTrigger(attackHashId);
-            Debug.Log("ATTACK");
         }
 
         //Continue chasing if not close to player
         else {
-            Debug.Log("STOP YO ATTACKING; START YO CHASIN");
-            //animController.ResetTrigger(attackHashId);
             if (navMeshAgent.speed != 10.0f)
             {
                 navMeshAgent.speed = 10.0f;
@@ -91,20 +102,7 @@ public class BasicRobotController : MonoBehaviour
             navMeshAgent.isStopped = false;
         }
 
-        /*
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
-            Debug.Log("GO IDLE");
-            state = AgentState.Idle;
-            navMeshAgent.isStopped = true;
-        }
-        else
-        {
-            navMeshAgent.isStopped = false;
-        }
-        */
         if (navMeshAgent.remainingDistance > distanceToStartChasingTarget) {
-            Debug.Log("GOING IDLE");
             state = AgentState.Idle;
         }
     }
@@ -126,7 +124,6 @@ public class BasicRobotController : MonoBehaviour
         navMeshAgent.isStopped = false;
         if (navMeshAgent.remainingDistance <= distanceToStartHeadingToNextWaypoint)
         {
-            Debug.Log(waypoints[next_waypoint]);
             next_waypoint = (next_waypoint + 1) % waypoints.Length;
             navMeshAgent.SetDestination(waypoints[next_waypoint].position);
         }
@@ -136,7 +133,6 @@ public class BasicRobotController : MonoBehaviour
         BoxCollider col = GetComponentInChildren<BoxCollider>();
         if (other.tag == "Player")
         {
-            Debug.Log("HIT HTI HIT MOAOCIMN");
             other.GetComponent<PlayerInteractionController>().getHit(damage);
         }
     }
@@ -152,5 +148,14 @@ public class BasicRobotController : MonoBehaviour
         else {
             return false;
         }
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+    }
+
+    public RobotState ToRecord() {
+        robotState = new RobotState(this.transform.position, this.transform.rotation, this.health, this.state);
+        return robotState;
     }
 }
