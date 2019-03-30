@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int level = 0;
+    public int level = 0;
 
     void Awake() {
         DontDestroyOnLoad(this);

@@ -4,6 +4,25 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+
+[Serializable]
+public struct PlayerState
+{
+    public Vector3 position;
+    public Quaternion rotation;
+    public float health;
+    public int score;
+
+    public PlayerState(Vector3 position, Quaternion rotation, float health, int score)
+    {
+        this.position = position;
+        this.rotation = rotation;
+        this.health = health;
+        this.score = score;
+    }
+}
+
 
 public class PlayerInteractionController : MonoBehaviour {
     public Sprite crosshairImage;
@@ -48,7 +67,7 @@ public class PlayerInteractionController : MonoBehaviour {
                         bool enemyKilled = hitObject.GetComponent<BasicRobotController>().onHit();
                         if (enemyKilled)
                         {
-                            setPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);
+                            SetPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);
                         }
                         Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
                         scoreHUD.text = "Score: " + this.score;
@@ -111,24 +130,38 @@ public class PlayerInteractionController : MonoBehaviour {
         yield return new WaitForSeconds(10f);
     }
 
-    void setPlayerScore(int scoreUpdate){
+    public void SetPlayerScore(int scoreUpdate){
         this.score += scoreUpdate;
     }
 
     public void getHit(float damageTaken) {
-        Debug.Log("GOT HIT");
-        Debug.Log(damageTaken);
-        Debug.Log(this.health);
-        this.health = this.health - damageTaken;
+        health = this.health - damageTaken;
+        SetPlayerHealth(health);
         UpdateHealthGUI();
         if (this.health <= 0) {
             SceneManager.LoadSceneAsync("Death");
         }
     }
 
+    public void SetPlayerHealth(float health) {
+        this.health = health;
+        Text scoreHUD = GameObject.Find("HealthHUD").GetComponent<Text>();
+        scoreHUD.text = "Health: " + this.health;
+    }
+
     void UpdateHealthGUI()
     {
         Text scoreHUD = GameObject.Find("HealthHUD").GetComponent<Text>();
         scoreHUD.text = "Health: " + this.health;
+    }
+
+    void UpdateScoreGUI() {
+        Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
+        scoreHUD.text = "Score: " + this.score;
+    }
+
+    public PlayerState ToRecord() {
+        PlayerState state = new PlayerState(this.transform.position, this.transform.rotation, this.health, this.score);
+        return state;
     }
 }

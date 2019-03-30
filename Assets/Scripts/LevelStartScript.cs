@@ -9,7 +9,8 @@ public class LevelStartScript : MonoBehaviour
     {
         SaveGameController saveManager = GameObject.Find("SaveManager").GetComponent<SaveGameController>();
         if (saveManager.GetLoadingLevel() == true) {
-            saveManager.LoadEnemies();
+            saveManager.LoadEntities();
         }
+        Debug.Log(GameObject.FindGameObjectWithTag("Player").transform.position);
     }
 }
