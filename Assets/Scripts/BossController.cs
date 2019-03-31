@@ -30,6 +30,7 @@ public class BossController : MonoBehaviour
     private Animator animController;
     private int speedHashId;
     private int attackHashId;
+    private int deathHashId;
     [SerializeField] private Transform target;
     [SerializeField] private float distanceToStartAttackingTarget;
     private BossState BossState;
@@ -39,29 +40,34 @@ public class BossController : MonoBehaviour
     {
         speedHashId = Animator.StringToHash("speed");
         attackHashId = Animator.StringToHash("attack");
+        deathHashId = Animator.StringToHash("death");
         navMeshAgent = GetComponent<NavMeshAgent>();
         animController = GetComponent<Animator>();
         this.target = GameObject.Find("Player").transform;
         distanceToStartAttackingTarget = navMeshAgent.stoppingDistance;
+        navMeshAgent.isStopped = true;
     }
 
     void Update()
     {
-        if (spottedPlayer == true)
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        navMeshAgent.SetDestination(target.position);
+        if (distanceToTarget <= 40.0f)
+        {
+            spottedPlayer = true;
+        }
+        if (spottedPlayer == true && health > 0)
         {
             Chase();
         }
         else
         {
-            Debug.Log("AM IDLE");
             Idle();
         }
     }
 
     void Chase()
     {
-        navMeshAgent.SetDestination(target.position);
-        Debug.Log(target.position);
         //Attack if close to player
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {
@@ -77,7 +83,6 @@ public class BossController : MonoBehaviour
         //Continue chasing if not close to player
         else
         {
-            Debug.Log("FUCKING MOVE IT");
             if (navMeshAgent.speed != 20.0f)
             {
                 navMeshAgent.speed = 20.0f;
@@ -95,11 +100,29 @@ public class BossController : MonoBehaviour
         navMeshAgent.isStopped = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public bool onHit()
     {
-        if (other.tag == "Player") {
-            Debug.Log("entered");
-            spottedPlayer = true;
+        health = health - 50;
+        if (health == 0)
+        {
+            spottedPlayer = false;
+            navMeshAgent.isStopped = true;
+            this.tag = null;
+            StartCoroutine(PlayDeath());
+            return true;
         }
+        else
+        {
+            return false;
+        }
+    }
+
+    IEnumerator PlayDeath()
+    {
+        //Waits two frames before reactivating script so that the character is loaded into the correct position.
+        Debug.Log("Am dying");
+        animController.SetTrigger(deathHashId);
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }

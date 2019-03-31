@@ -60,6 +60,7 @@ public class BasicRobotController : MonoBehaviour
 
     void Update()
     {
+        navMeshAgent.SetDestination(target.position);
         Vector3 targetDir = target.position - transform.position;
         float angle = Vector3.Angle(targetDir, transform.forward);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -82,8 +83,6 @@ public class BasicRobotController : MonoBehaviour
     void Chase()
     {
         animController.SetFloat(speedHashId, 10.0f);
-        navMeshAgent.SetDestination(target.position);
-
         //Attack if close to player
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
         {

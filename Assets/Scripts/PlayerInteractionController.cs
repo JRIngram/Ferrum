@@ -56,7 +56,7 @@ public class PlayerInteractionController : MonoBehaviour {
         if (Physics.Raycast(centreOfScreenRay, out hit, distanceToFireRay))
         {
             GameObject hitObject = hit.transform.gameObject;
-            if (hitObject.tag == "Enemy")
+            if (hitObject.tag == "Enemy" || hitObject.tag == "Boss")
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -68,6 +68,15 @@ public class PlayerInteractionController : MonoBehaviour {
                         if (enemyKilled)
                         {
                             SetPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);
+                        }
+                        Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
+                        scoreHUD.text = "Score: " + this.score;
+                    }
+                    if (hitObject.tag == "Boss") {
+                        bool enemyKilled = hitObject.GetComponent<BossController>().onHit();
+                        if (enemyKilled)
+                        {
+                            SetPlayerScore(hitObject.GetComponent<BossController>().scoreValue);
                         }
                         Text scoreHUD = GameObject.Find("ScoreHUD").GetComponent<Text>();
                         scoreHUD.text = "Score: " + this.score;
