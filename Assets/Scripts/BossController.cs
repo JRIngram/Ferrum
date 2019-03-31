@@ -52,7 +52,7 @@ public class BossController : MonoBehaviour
     {
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         navMeshAgent.SetDestination(target.position);
-        if (distanceToTarget <= 40.0f)
+        if (distanceToTarget <= 75.0f)
         {
             spottedPlayer = true;
         }
@@ -83,10 +83,10 @@ public class BossController : MonoBehaviour
         //Continue chasing if not close to player
         else
         {
-            if (navMeshAgent.speed != 20.0f)
+            if (navMeshAgent.speed != 30.0f)
             {
-                navMeshAgent.speed = 20.0f;
-                animController.SetFloat(speedHashId, 20.0f);
+                navMeshAgent.speed = 30.0f;
+                animController.SetFloat(speedHashId, 30.0f);
                 animController.SetBool(attackHashId, false);
             }
             navMeshAgent.isStopped = false;

@@ -60,13 +60,13 @@ public class BasicRobotController : MonoBehaviour
 
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
         Vector3 targetDir = target.position - transform.position;
         float angle = Vector3.Angle(targetDir, transform.forward);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget <= distanceToStartChasingTarget && angle < 180.0f && target.tag == "Player")
         {
             state = AgentState.Chasing;
+            navMeshAgent.SetDestination(target.position);
             Chase();
         }
         else if (state == AgentState.Idle)
@@ -93,10 +93,10 @@ public class BasicRobotController : MonoBehaviour
 
         //Continue chasing if not close to player
         else {
-            if (navMeshAgent.speed != 20.0f)
+            if (navMeshAgent.speed != 10.0f)
             {
-                navMeshAgent.speed = 20.0f;
-                animController.SetFloat(speedHashId, 20.0f);
+                navMeshAgent.speed = 10.0f;
+                animController.SetFloat(speedHashId, 10.0f);
             }
             navMeshAgent.isStopped = false;
         }
