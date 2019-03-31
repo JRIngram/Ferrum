@@ -31,6 +31,10 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
+    public void HoverNoise() {
+        GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
+    }
+
     IEnumerator noiseThenLoadLevel() {
         AudioSource playNoise = GameObject.Find("PlayNoise").GetComponent<AudioSource>();
         playNoise.Play();

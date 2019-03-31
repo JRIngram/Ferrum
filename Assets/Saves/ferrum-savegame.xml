@@ -3,18 +3,78 @@
   <robotStates>
     <RobotState>
       <position>
-        <x>114.804047</x>
-        <y>0.101733238</y>
-        <z>772.8936</z>
+        <x>171.1121</x>
+        <y>3.722354</y>
+        <z>432.97644</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.5338618</y>
+        <y>-0.5246154</y>
         <z>-0</z>
-        <w>-0.8455718</w>
+        <w>-0.85133934</w>
         <eulerAngles>
           <x>-0</x>
-          <y>64.53351</y>
+          <y>63.2847137</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>209.742157</x>
+        <y>43.28609</y>
+        <z>817.678467</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.5488393</y>
+        <z>-0</z>
+        <w>-0.835927844</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>66.5748444</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>202.655777</x>
+        <y>3.609446</y>
+        <z>461.105072</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.795242131</y>
+        <z>-0</z>
+        <w>0.606292</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>254.643738</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>150.050034</x>
+        <y>0.165</y>
+        <z>223.157425</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.7906106</y>
+        <z>-0</z>
+        <w>-0.61231935</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>104.485214</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -23,58 +83,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>139.9928</x>
-        <y>0.0609674454</y>
-        <z>251.589233</z>
+        <x>103.86232</x>
+        <y>4.346423</y>
+        <z>336.107941</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.9178854</y>
+        <y>-0.9985039</y>
         <z>-0</z>
-        <w>0.39684552</w>
+        <w>0.0546814725</w>
         <eulerAngles>
           <x>-0</x>
-          <y>226.762238</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>81.8219147</x>
-        <y>0.103141695</y>
-        <z>425.326874</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.0177563839</y>
-        <z>-0</z>
-        <w>0.9998424</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>2.03483868</y>
-          <z>-0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>106.704041</x>
-        <y>0.141417831</y>
-        <z>761.8936</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.5338618</y>
-        <z>-0</z>
-        <w>-0.8455718</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>64.53351</y>
+          <y>186.269165</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -83,78 +103,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>297.944519</x>
-        <y>0.0609674454</y>
-        <z>935.978149</z>
+        <x>152.490738</x>
+        <y>0.193128765</y>
+        <z>260.492279</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.7444104</y>
+        <y>-0.7615716</y>
         <z>-0</z>
-        <w>0.6677224</w>
+        <w>-0.6480808</w>
         <eulerAngles>
           <x>-0</x>
-          <y>263.783051</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>354.530273</x>
-        <y>0.1546047</y>
-        <z>630.971</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.3945777</y>
-        <z>-0</z>
-        <w>-0.918862641</w>
-        <eulerAngles>
-          <x>0</x>
-          <y>313.520721</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>101.008286</x>
-        <y>0.0609674454</y>
-        <z>383.711243</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.999926865</y>
-        <z>-0</z>
-        <w>-0.0120978877</w>
-        <eulerAngles>
-          <x>0</x>
-          <y>181.386337</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>122.704041</x>
-        <y>0.213879228</y>
-        <z>756.3936</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.5338618</y>
-        <z>-0</z>
-        <w>-0.8455718</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>64.53351</y>
+          <y>99.20588</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -163,178 +123,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>301.8692</x>
-        <y>0.0609674454</y>
-        <z>906.739746</z>
+        <x>363.0102</x>
+        <y>43.2300034</y>
+        <z>675.7098</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.7444104</y>
+        <y>-0.9985039</y>
         <z>-0</z>
-        <w>0.6677224</w>
+        <w>0.05468146</w>
         <eulerAngles>
           <x>-0</x>
-          <y>263.783051</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>90.30829</x>
-        <y>0.0609674454</y>
-        <z>383.711243</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.999926865</y>
-        <z>-0</z>
-        <w>-0.0120978877</w>
-        <eulerAngles>
-          <x>0</x>
-          <y>181.386337</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>64.80829</x>
-        <y>0.204068959</y>
-        <z>383.711273</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.999926865</y>
-        <z>-0</z>
-        <w>-0.0120978877</w>
-        <eulerAngles>
-          <x>0</x>
-          <y>181.386337</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>98.25177</x>
-        <y>0.0609674454</y>
-        <z>425.1333</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.0177566931</y>
-        <z>-0</z>
-        <w>0.9998424</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>2.0348742</y>
-          <z>-0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>76.60829</x>
-        <y>0.123366237</y>
-        <z>383.711243</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.999926865</y>
-        <z>-0</z>
-        <w>-0.0120978877</w>
-        <eulerAngles>
-          <x>0</x>
-          <y>181.386337</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>160.460709</x>
-        <y>0.0609674454</y>
-        <z>231.538513</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.924853742</y>
-        <z>-0</z>
-        <w>0.380323142</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>224.7074</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>304.1692</x>
-        <y>0.0609674454</y>
-        <z>889.3397</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.7444104</y>
-        <z>-0</z>
-        <w>0.6677224</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>263.783051</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>68.62494</x>
-        <y>0.191379488</y>
-        <z>425.4706</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.0252087675</y>
-        <z>-0</z>
-        <w>-0.999682248</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>2.889018</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>-237.471558</x>
-        <y>0</y>
-        <z>699.834167</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.6682012</y>
-        <z>-0</z>
-        <w>-0.743980646</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>83.8567657</y>
+          <y>186.269165</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -343,18 +143,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>299.8692</x>
-        <y>0.0609674454</y>
-        <z>921.739746</z>
+        <x>160.860321</x>
+        <y>3.939376</y>
+        <z>450.0161</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.7444104</y>
+        <y>-0.515670955</y>
         <z>-0</z>
-        <w>0.6677224</w>
+        <w>-0.856786668</w>
         <eulerAngles>
           <x>-0</x>
-          <y>263.783051</y>
+          <y>62.08463</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -363,38 +163,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>128.125626</x>
-        <y>0.284244239</y>
-        <z>744.9321</z>
+        <x>82.8103</x>
+        <y>4.417603</y>
+        <z>330.268341</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>-0.5338618</y>
+        <y>-0.9985039</y>
         <z>-0</z>
-        <w>-0.8455718</w>
+        <w>0.0546814725</w>
         <eulerAngles>
           <x>-0</x>
-          <y>64.53351</y>
-          <z>0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Idle</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>113.804047</x>
-        <y>0.336405516</y>
-        <z>747.093567</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.5338618</y>
-        <z>-0</z>
-        <w>-0.8455718</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>64.53351</y>
+          <y>186.269165</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -403,18 +183,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>194.204956</x>
-        <y>0.3186634</y>
-        <z>285.4387</z>
+        <x>365.066528</x>
+        <y>0.250068337</y>
+        <z>154.250839</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>0.921036541</y>
+        <y>-0.9480956</y>
         <z>-0</z>
-        <w>-0.389476329</w>
+        <w>0.317985624</w>
         <eulerAngles>
-          <x>0</x>
-          <y>225.843826</y>
+          <x>-0</x>
+          <y>217.082291</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -423,58 +203,18 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>394.409851</x>
-        <y>0.2078828</y>
-        <z>618.0573</z>
+        <x>281.372345</x>
+        <y>14.6101589</y>
+        <z>647.873047</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>0.8736876</y>
+        <y>-0.191689029</y>
         <z>-0</z>
-        <w>0.486487448</w>
+        <w>0.981455743</w>
         <eulerAngles>
           <x>-0</x>
-          <y>121.78006</y>
-          <z>-0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>241.8667</x>
-        <y>0.28886053</y>
-        <z>568.7751</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>0.606112957</y>
-        <z>-0</z>
-        <w>0.7953786</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>74.61794</y>
-          <z>-0</z>
-        </eulerAngles>
-      </rotation>
-      <health>100</health>
-      <state>Patrolling</state>
-    </RobotState>
-    <RobotState>
-      <position>
-        <x>374.9535</x>
-        <y>0.08379735</y>
-        <z>585.096252</z>
-      </position>
-      <rotation>
-        <x>-0</x>
-        <y>-0.854699254</y>
-        <z>-0</z>
-        <w>-0.519123554</w>
-        <eulerAngles>
-          <x>-0</x>
-          <y>117.453041</y>
+          <y>337.897247</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -483,18 +223,178 @@
     </RobotState>
     <RobotState>
       <position>
-        <x>381.380432</x>
-        <y>0.227633953</y>
-        <z>660.6038</z>
+        <x>235.9589</x>
+        <y>15.31153</y>
+        <z>667.7866</z>
       </position>
       <rotation>
         <x>-0</x>
-        <y>0.3945866</y>
+        <y>0.4013613</y>
         <z>-0</z>
-        <w>-0.9188588</w>
+        <w>-0.91591984</w>
         <eulerAngles>
           <x>0</x>
-          <y>313.519623</y>
+          <y>312.6734</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>349.8127</x>
+        <y>43.6065025</y>
+        <z>669.840942</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.9985039</y>
+        <z>-0</z>
+        <w>0.05468146</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>186.269165</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Idle</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>240.922958</x>
+        <y>43.39231</y>
+        <z>760.991943</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.6641955</y>
+        <z>-0</z>
+        <w>-0.747558951</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>83.24127</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>231.440262</x>
+        <y>0.165</y>
+        <z>229.892532</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.9603629</y>
+        <z>-0</z>
+        <w>0.278752834</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>212.371567</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>333.799683</x>
+        <y>43.287487</y>
+        <z>668.317261</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.9985039</y>
+        <z>-0</z>
+        <w>0.05468146</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>186.269165</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Idle</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>327.904755</x>
+        <y>0.165</y>
+        <z>155.300644</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.237875909</y>
+        <z>-0</z>
+        <w>-0.9712956</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>27.522419</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>63.10223</x>
+        <y>4.58329535</y>
+        <z>331.827759</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.9985039</y>
+        <z>-0</z>
+        <w>0.05468147</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>186.269165</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Idle</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>262.807831</x>
+        <y>43.2300034</y>
+        <z>801.772461</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.7587121</y>
+        <z>-0</z>
+        <w>0.651426136</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>261.2984</y>
+          <z>0</z>
+        </eulerAngles>
+      </rotation>
+      <health>100</health>
+      <state>Patrolling</state>
+    </RobotState>
+    <RobotState>
+      <position>
+        <x>196.72139</x>
+        <y>15.082262</y>
+        <z>724.1054</z>
+      </position>
+      <rotation>
+        <x>-0</x>
+        <y>-0.9392252</y>
+        <z>-0</z>
+        <w>-0.343301684</w>
+        <eulerAngles>
+          <x>-0</x>
+          <y>139.843689</y>
           <z>0</z>
         </eulerAngles>
       </rotation>
@@ -504,23 +404,23 @@
   </robotStates>
   <playerState>
     <position>
-      <x>-14.9815931</x>
-      <y>583.5407</y>
-      <z>792.3659</z>
+      <x>398</x>
+      <y>2.57999969</y>
+      <z>100.87</z>
     </position>
     <rotation>
       <x>0</x>
-      <y>-0.872473538</y>
+      <y>-0.225234851</y>
       <z>0</z>
-      <w>0.488661349</w>
+      <w>0.974304557</w>
       <eulerAngles>
         <x>0</x>
-        <y>238.505264</y>
+        <y>333.9666</y>
         <z>0</z>
       </eulerAngles>
     </rotation>
     <health>100</health>
     <score>0</score>
   </playerState>
-  <level>2</level>
+  <level>1</level>
 </GameState>

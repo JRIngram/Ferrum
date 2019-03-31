@@ -28,4 +28,9 @@ public class LevelSelectorController : MonoBehaviour
         GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(3);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level3");
     }
+
+    public void HoverNoise()
+    {
+        GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
+    }
 }

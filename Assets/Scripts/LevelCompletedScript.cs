@@ -42,4 +42,9 @@ public class LevelCompletedScript : MonoBehaviour
     void WriteText() {
         GameObject.Find("CompletedText").GetComponent<Text>().text = "You completed Level " + (level-1) + "!";
     }
+
+    public void HoverNoise()
+    {
+        GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
+    }
 }

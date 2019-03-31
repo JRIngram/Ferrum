@@ -30,4 +30,9 @@ public class DeathScript : MonoBehaviour
         Debug.Log(retryLevel);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(retryLevel);
     }
+
+    public void HoverNoise()
+    {
+        GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
+    }
 }
