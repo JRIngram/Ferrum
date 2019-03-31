@@ -33,6 +33,6 @@ public class DeathScript : MonoBehaviour
 
     public void HoverNoise()
     {
-        GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
+        GameObject.Find("NoiseManager").GetComponent<AudioSource>().Play();
     }
 }
