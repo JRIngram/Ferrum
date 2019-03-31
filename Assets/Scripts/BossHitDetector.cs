@@ -6,11 +6,11 @@ public class BossHitDetector : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HIIIIIIIIT");
-       float damage = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossController>().damage;
-        if (other.tag == "Player")
-        {
+       float damage = gameObject.transform.parent.gameObject.GetComponent<BossController>().damage;
+       if (other.tag == "Player")
+       {
+            gameObject.GetComponent<AudioSource>().Play();
             other.GetComponent<PlayerInteractionController>().getHit(damage);
-        }
+       }
     }
 }

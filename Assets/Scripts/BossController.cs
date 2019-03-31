@@ -122,6 +122,7 @@ public class BossController : MonoBehaviour
         //Waits two frames before reactivating script so that the character is loaded into the correct position.
         Debug.Log("Am dying");
         animController.SetTrigger(deathHashId);
+        gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
