@@ -44,6 +44,8 @@ public class BasicRobotController : MonoBehaviour
     [SerializeField] private float distanceToStartChasingTarget;
     [SerializeField] private float distanceToStartAttackingTarget;
     private RobotState robotState;
+    public AudioClip punchSound;
+    public AudioClip deathSound;
 
     void Awake()
     {
@@ -132,6 +134,8 @@ public class BasicRobotController : MonoBehaviour
         BoxCollider col = GetComponentInChildren<BoxCollider>();
         if (other.tag == "Player")
         {
+            gameObject.GetComponent<AudioSource>().clip = punchSound;
+            gameObject.GetComponent<AudioSource>().Play();
             other.GetComponent<PlayerInteractionController>().getHit(damage);
         }
     }
@@ -141,7 +145,7 @@ public class BasicRobotController : MonoBehaviour
         health = health - 50;
         if (health == 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(PlayDeath());
             return true;
         }
         else {
@@ -156,5 +160,23 @@ public class BasicRobotController : MonoBehaviour
     public RobotState ToRecord() {
         robotState = new RobotState(this.transform.position, this.transform.rotation, this.health, this.state);
         return robotState;
+    }
+
+    IEnumerator PlayDeath() {
+        gameObject.GetComponent<AudioSource>().clip = deathSound;
+        gameObject.GetComponent<AudioSource>().Play();       
+        /*
+         *  Destroys all children objects and colliders
+         *  This gives the illusion that the object is destroyed whilst allowing the sound to play.
+         *  Once audio completed the object is truly destroyed
+        */
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Destroy(gameObject.GetComponent("BoxCollider"));
+        Destroy(gameObject.GetComponent("CapsuleCollider"));
+        yield return new WaitForSeconds(gameObject.GetComponent<AudioSource>().clip.length);
+        Destroy(gameObject);
     }
 }

@@ -1314,6 +1314,8 @@ MonoBehaviour:
   target: {fileID: 0}
   distanceToStartChasingTarget: 30
   distanceToStartAttackingTarget: 3
+  punchSound: {fileID: 8300000, guid: f41f57bc0137c194b902dc8ef10c0bf5, type: 3}
+  deathSound: {fileID: 8300000, guid: 4be9479da24f39b4f90360386e94ee00, type: 3}
 --- !u!195 &5652037376283202687
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1359,7 +1361,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4be9479da24f39b4f90360386e94ee00, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f41f57bc0137c194b902dc8ef10c0bf5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
