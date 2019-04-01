@@ -85,8 +85,8 @@ public class BossController : MonoBehaviour
         {
             if (navMeshAgent.speed != 30.0f)
             {
-                navMeshAgent.speed = 30.0f;
-                animController.SetFloat(speedHashId, 30.0f);
+                navMeshAgent.speed = 20.0f;
+                animController.SetFloat(speedHashId, 20.0f);
                 animController.SetBool(attackHashId, false);
             }
             navMeshAgent.isStopped = false;
@@ -120,7 +120,6 @@ public class BossController : MonoBehaviour
     IEnumerator PlayDeath()
     {
         //Waits two frames before reactivating script so that the character is loaded into the correct position.
-        Debug.Log("Am dying");
         animController.SetTrigger(deathHashId);
         gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(5);
