@@ -63,7 +63,9 @@ public class SaveGameController : MonoBehaviour
             RobotState[] states = new RobotState[robots.Length];
             for (int i = 0; i < robots.Length; i++)
             {
-                states[i] = robots[i].ToRecord();
+                if (robots[i].GetHealth() > 0.0f) {
+                    states[i] = robots[i].ToRecord();
+                }
             }
             PlayerState playerState = GameObject.Find("Player").GetComponent<PlayerInteractionController>().ToRecord();
             GameState gs = new GameState(states, level, playerState);

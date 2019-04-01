@@ -157,6 +157,10 @@ public class BasicRobotController : MonoBehaviour
         this.health = health;
     }
 
+    public float GetHealth() {
+        return this.health;
+    }
+
     public RobotState ToRecord() {
         robotState = new RobotState(this.transform.position, this.transform.rotation, this.health, this.state);
         return robotState;
