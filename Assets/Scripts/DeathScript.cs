@@ -34,6 +34,9 @@ public class DeathScript : MonoBehaviour
 
     public void HoverNoise()
     {
+        /**
+        * Plays a noise when the player hovers over a button.
+        */
         GameObject.Find("NoiseManager").GetComponent<AudioSource>().Play();
     }
 }

@@ -20,7 +20,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ButtonHandlerPlay(){
         /**
-         * Loads a new level.
+         * Runs the noiseThenLoadLevel coroutine and updates the LevelManager to give its level value the value of 1.
          */
         GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
         StartCoroutine(noiseThenLoadLevel());
@@ -41,15 +41,24 @@ public class MainMenuController : MonoBehaviour
 	}
 
     public void ButtonHandlerQuit()
-    {
+    {   
+        /**
+         * Exits the game / application.
+         */
         Application.Quit();
     }
 
     public void HoverNoise() {
+        /**
+         * Plays a noise when the player hovers over a button.
+         */
         GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
     }
 
     IEnumerator noiseThenLoadLevel() {
+        /**
+         * Plays a gun noise and then loads the first level.
+         */
         AudioSource playNoise = GameObject.Find("PlayNoise").GetComponent<AudioSource>();
         playNoise.Play();
         yield return new WaitForSeconds(playNoise.clip.length);

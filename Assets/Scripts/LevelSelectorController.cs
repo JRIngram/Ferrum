@@ -31,6 +31,9 @@ public class LevelSelectorController : MonoBehaviour
 
     public void HoverNoise()
     {
+        /**
+        * Plays a noise when the player hovers over a button.
+        */
         GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
     }
 }

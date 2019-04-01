@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public int level = 0;
-    public int score = 0;
+    public int level = 0; //Uses to keep track of the level the player is on.
+    public int score = 0; //Used to persist scores across scenes
 
     void Awake() {
         /**

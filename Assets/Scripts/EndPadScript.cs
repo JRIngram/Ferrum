@@ -16,10 +16,12 @@ public class EndPadScript : MonoBehaviour
          * If the colliding object is the player then load the next level.
          */
         if(other.tag == "Player") {
-            int currentLevel = GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel();
+            //Passes player score to LevelManager so it can persist across levels. 
             GameObject.Find("LevelManager").GetComponent<LevelManager>().score = GameObject.Find("Player").GetComponent<PlayerInteractionController>().GetPlayerScore();
+            
+            //Loads next level
+            int currentLevel = GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel();
             GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(currentLevel + 1);
-            Debug.Log(GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel());
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelComplete");
         }
     }
