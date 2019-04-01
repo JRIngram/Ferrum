@@ -49,7 +49,7 @@ public class PlayerInteractionController : MonoBehaviour {
 
     void PhysicsRaycasts()
     {
-        Vector3 centreOfScreen = new Vector3 (Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        Vector3 centreOfScreen = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
         float distanceToFireRay = 20;
         Ray centreOfScreenRay = Camera.main.ScreenPointToRay(centreOfScreen);
         RaycastHit hit;
@@ -89,11 +89,15 @@ public class PlayerInteractionController : MonoBehaviour {
             else
             {
                 ToggleSelectedCursor(false);
-            } 
+            }
         }
         else
         {
             ToggleSelectedCursor(false);
+        }
+
+        if (Input.GetKeyDown("q")) {
+            SceneManager.LoadSceneAsync("MainMenu");
         }
     }
 
