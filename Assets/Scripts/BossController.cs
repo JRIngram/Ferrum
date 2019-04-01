@@ -150,11 +150,19 @@ public class BossController : MonoBehaviour
 
     public void setHealth(float health)
     {
+        /**
+         * Mutator method to change the boss's health.
+         * Used when loading the boss.
+         */
         this.health = health;
     }
 
     public BossState ToRecord()
     {
+        /**
+         * Creates a bossState variable and returns it.
+         * Used when saving the agent.
+         */
         bossState = new BossState(this.transform.position, this.transform.rotation, this.health, this.spottedPlayer);
         return bossState;
     }

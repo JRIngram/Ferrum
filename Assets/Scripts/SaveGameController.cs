@@ -73,7 +73,7 @@ public class SaveGameController : MonoBehaviour
                 }
             }
             PlayerState playerState = GameObject.Find("Player").GetComponent<PlayerInteractionController>().ToRecord();
-            BossState bossState = GameObject.Find("Boss").GetComponent<BossController>().ToRecord();
+            BossState bossState = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossController>().ToRecord();
             GameState gs = new GameState(states, level, playerState, bossState);
             XmlDocument xmlDocument = new XmlDocument();
             XmlSerializer serializer = new XmlSerializer(typeof(GameState));
