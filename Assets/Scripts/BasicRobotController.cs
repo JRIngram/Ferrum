@@ -4,8 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/**
+ * Used to control the Boss's behaviour 
+ */
+
 public enum AgentState
-{
+{   
+    /**
+     * The three states the robot can be in:
+     * 
+     */
     Idle = 0,
     Patrolling,
     Chasing

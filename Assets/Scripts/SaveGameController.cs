@@ -18,6 +18,9 @@ public class SaveGameController : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
+    private GameObject boss;
+
     private const string SAVEGAME_FILE = "Assets/Saves/ferrum-savegame.xml";
 
     private bool loadingLevel;
@@ -27,13 +30,15 @@ public class SaveGameController : MonoBehaviour
     {
         public RobotState[] robotStates;
         public PlayerState playerState;
+        public BossState bossState;
         public int level;
 
-        public GameState(RobotState[] robotStates, int level, PlayerState playerState)
+        public GameState(RobotState[] robotStates, int level, PlayerState playerState, BossState bossState)
         {
             this.robotStates = robotStates;
             this.level = level;
             this.playerState = playerState;
+            this.bossState = bossState;
         }
     }
 
@@ -68,7 +73,8 @@ public class SaveGameController : MonoBehaviour
                 }
             }
             PlayerState playerState = GameObject.Find("Player").GetComponent<PlayerInteractionController>().ToRecord();
-            GameState gs = new GameState(states, level, playerState);
+            BossState bossState = GameObject.Find("Boss").GetComponent<BossController>().ToRecord();
+            GameState gs = new GameState(states, level, playerState, bossState);
             XmlDocument xmlDocument = new XmlDocument();
             XmlSerializer serializer = new XmlSerializer(typeof(GameState));
             using (MemoryStream stream = new MemoryStream())
@@ -133,6 +139,16 @@ public class SaveGameController : MonoBehaviour
             newRobot.GetComponent<BasicRobotController>().setHealth(state.health);
             newRobot.GetComponent<BasicRobotController>().state = state.state;
             newRobot.GetComponent<NavMeshAgent>().Warp(new Vector3(newRobot.transform.position.x, newRobot.transform.position.y + 1, newRobot.transform.position.z));
+        }
+
+        Destroy(GameObject.FindGameObjectWithTag("Boss"));
+        if (gameState.bossState.health > 0)
+        {
+            GameObject newBoss = Instantiate(boss);
+            newBoss.transform.position = gameState.bossState.position;
+            newBoss.transform.rotation = gameState.bossState.rotation;
+            newBoss.GetComponent<BossController>().setHealth(gameState.bossState.health);
+            newBoss.GetComponent<NavMeshAgent>().Warp(new Vector3(newBoss.transform.position.x, newBoss.transform.position.y + 1, newBoss.transform.position.z));
         }
     }
 

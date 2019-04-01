@@ -3,6 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+/**
+ * Used to control the Boss's behaviour 
+ */
+
 [Serializable]
 public struct BossState
 {
@@ -26,7 +30,7 @@ public struct BossState
 
 public class BossController : MonoBehaviour
 {
-    private BossState BossState;
+    private BossState bossState;
     public int scoreValue = 500; //Score the player receives upon killing the boss
     private float health = 250;
     public float damage;
@@ -142,6 +146,17 @@ public class BossController : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void setHealth(float health)
+    {
+        this.health = health;
+    }
+
+    public BossState ToRecord()
+    {
+        bossState = new BossState(this.transform.position, this.transform.rotation, this.health, this.spottedPlayer);
+        return bossState;
     }
 
     IEnumerator PlayDeath()

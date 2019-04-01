@@ -1541,7 +1541,7 @@ PrefabInstance:
     - target: {fileID: 6139195590745324981, guid: 954d6f92aadd16f44af3df08cdcf03d7,
         type: 3}
       propertyPath: m_Name
-      value: boss
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 6139195590745324979, guid: 954d6f92aadd16f44af3df08cdcf03d7,
         type: 3}
