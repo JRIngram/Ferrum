@@ -17,6 +17,7 @@ public class EndPadScript : MonoBehaviour
          */
         if(other.tag == "Player") {
             int currentLevel = GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel();
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().score = GameObject.Find("Player").GetComponent<PlayerInteractionController>().GetPlayerScore();
             GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(currentLevel + 1);
             Debug.Log(GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel());
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelComplete");

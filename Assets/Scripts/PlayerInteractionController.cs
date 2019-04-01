@@ -31,6 +31,7 @@ public class PlayerInteractionController : MonoBehaviour {
     public GraphicRaycaster graphicRaycaster;
     private int score;
     private float health;
+    private bool hitEnemy;
 
     private void Awake()
     {
@@ -60,7 +61,6 @@ public class PlayerInteractionController : MonoBehaviour {
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    StartCoroutine(ToggleHitEnemyCursor());
                     //Debug.Log("Raycast hit: " + hit.transform.name);
                     if (hitObject.tag == "Enemy")
                     {
@@ -138,13 +138,13 @@ public class PlayerInteractionController : MonoBehaviour {
         }
     }
 
-    IEnumerator ToggleHitEnemyCursor() {
-        crosshair.color = Color.red;
-        yield return new WaitForSeconds(10f);
-    }
-
     public void SetPlayerScore(int scoreUpdate){
         this.score += scoreUpdate;
+        UpdateScoreGUI();
+    }
+
+    public int GetPlayerScore() {
+        return this.score;
     }
 
     public void getHit(float damageTaken) {

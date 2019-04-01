@@ -3,26 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Controls the behaviour of the main menu.
+ */
+
 public class MainMenuController : MonoBehaviour
 {
     public void Start()
     {
+        /**
+         * Ensures that the player can move the cursor.
+         */
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void ButtonHandlerPlay(){
-        //Will load a new level!
+        /**
+         * Loads a new level.
+         */
         GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
         StartCoroutine(noiseThenLoadLevel());
     }
 
     public void ButtonHandlerLoad() {
+        /**
+         * Loads the saved level from the XML file.
+         */
         GameObject.Find("SaveManager").GetComponent<SaveGameController>().LoadLevel();
     }
 
     public void ButtonHandlerLevel(){
-		//Loads the Level Selection Menu
+		/**
+         * Loads the Level Selection Menu
+         */
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelSelection");
 	}
 

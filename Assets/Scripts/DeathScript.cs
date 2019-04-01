@@ -10,6 +10,7 @@ public class DeathScript : MonoBehaviour
     void Awake()
     {
         level = GameObject.Find("LevelManager").GetComponent<LevelManager>().GetLevel();
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().score = 0;
     }
 
     void Start()

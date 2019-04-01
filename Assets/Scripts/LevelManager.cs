@@ -9,6 +9,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public int level = 0;
+    public int score = 0;
 
     void Awake() {
         /**
@@ -24,11 +25,11 @@ public class LevelManager : MonoBehaviour
         level = newLevel;
     }
 
-    public int GetLevel() {
+    public int GetLevel()
+    {
         /**
          * Accessor method to get the level of the Level manager.
-         */ 
+         */
         return level;
     }
-
 }
