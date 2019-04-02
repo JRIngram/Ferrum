@@ -20,7 +20,7 @@ public class SaveGameController : MonoBehaviour
     [SerializeField]
     private GameObject boss;
 
-    private const string SAVEGAME_FILE = "Assets/Saves/ferrum-savegame.xml"; //File path for save game file.
+    private const string SAVEGAME_FILE = "ferrum-savegame.xml"; //File path for save game file.
 
     private bool loadingLevel; //Used to indicate if a level is being loaded.
 
