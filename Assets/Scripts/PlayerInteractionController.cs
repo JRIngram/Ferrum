@@ -80,7 +80,7 @@ public class PlayerInteractionController : MonoBehaviour {
                 {
                     if (hitObject.tag == "Enemy")
                     {
-                        bool enemyKilled = hitObject.GetComponent<BasicRobotController>().onHit();
+                        bool enemyKilled = hitObject.GetComponent<BasicRobotController>().OnHit();
                         if (enemyKilled)
                         {
                             SetPlayerScore(hitObject.GetComponent<BasicRobotController>().scoreValue);

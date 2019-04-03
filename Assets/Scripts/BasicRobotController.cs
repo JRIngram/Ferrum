@@ -21,10 +21,13 @@ public enum AgentState
 
 [Serializable]
 public struct RobotState {
-    public Vector3 position;
-    public Quaternion rotation;
-    public float health;
-    public AgentState state;
+    /**
+     * Creates a RobotState struct, used for reloading robots.
+     */
+    public Vector3 position; //Position of the robot
+    public Quaternion rotation; //Rotation of the robot
+    public float health; //Health of the robot
+    public AgentState state; //State of the robot
 
     public RobotState(Vector3 position, Quaternion rotation, float health, AgentState state) {
         this.position = position;
@@ -57,6 +60,9 @@ public class BasicRobotController : MonoBehaviour
 
     void Awake()
     {
+        /**
+         * Creates the navMeshAgent and sets up the animator
+         */
         speedHashId = Animator.StringToHash("walkingSpeed");
         attackHashId = Animator.StringToHash("attack");
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -70,6 +76,10 @@ public class BasicRobotController : MonoBehaviour
 
     void Update()
     {
+        /**
+         * Checks distance from player: it will continue in either patrolling or idle state until the player is close.
+         * Once the player is close the robot will chase the player until they are a large distance away.
+         */
         Vector3 targetDir = target.position - transform.position;
         float angle = Vector3.Angle(targetDir, transform.forward);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -92,6 +102,10 @@ public class BasicRobotController : MonoBehaviour
 
     void Chase()
     {
+        /**
+         * Follows the player until it is close enough to the player that it can attack.
+         * If the player gets too far away the robot will move to an idle state.
+         */
         animController.SetFloat(speedHashId, 10.0f);
         //Attack if close to player
         if (navMeshAgent.remainingDistance <= distanceToStartAttackingTarget)
@@ -118,6 +132,9 @@ public class BasicRobotController : MonoBehaviour
 
     void Idle()
     {
+        /**
+         * The robot stays in an idle position
+         */
         animController.SetFloat(speedHashId, 0.0f);
         navMeshAgent.speed = 0.0f;
         navMeshAgent.isStopped = true;
@@ -126,6 +143,9 @@ public class BasicRobotController : MonoBehaviour
 
     void Patrol()
     {
+        /**
+         * The robot moves back and forth between two waypoints.
+         */
         if (navMeshAgent.speed != 5.0f)
         {
             navMeshAgent.speed = 5.0f;
@@ -140,6 +160,9 @@ public class BasicRobotController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other) {
+        /**
+         * If a player enters the robot's trigger collider then a punch sound is made and the player takes damage.
+         */
         BoxCollider col = GetComponentInChildren<BoxCollider>();
         if (other.tag == "Player")
         {
@@ -150,7 +173,10 @@ public class BasicRobotController : MonoBehaviour
     }
 
 
-    public bool onHit() {
+    public bool OnHit() {
+        /**
+         * If the robot is hit it loses 50 health; plays the death subroutine if the health is 0.
+         */
         health = health - 50;
         if (health == 0)
         {
@@ -162,15 +188,24 @@ public class BasicRobotController : MonoBehaviour
         }
     }
 
-    public void setHealth(float health) {
+    public void SetHealth(float health) {
+        /**
+         * Mutator method to allow the robots health to be set.
+         */
         this.health = health;
     }
 
     public float GetHealth() {
+        /**
+         * Accessor method to return the robots health.
+         */
         return this.health;
     }
 
     public RobotState ToRecord() {
+        /**
+         * Creates a RobotState and returns it. Used for saving the player's state.
+         */
         robotState = new RobotState(this.transform.position, this.transform.rotation, this.health, this.state);
         return robotState;
     }

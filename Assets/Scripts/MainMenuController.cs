@@ -23,7 +23,7 @@ public class MainMenuController : MonoBehaviour
          * Runs the noiseThenLoadLevel coroutine and updates the LevelManager to give its level value the value of 1.
          */
         GameObject.Find("LevelManager").GetComponent<LevelManager>().UpdateLevel(1);
-        StartCoroutine(noiseThenLoadLevel());
+        StartCoroutine(NoiseThenLoadLevel());
     }
 
     public void ButtonHandlerLoad() {
@@ -55,7 +55,7 @@ public class MainMenuController : MonoBehaviour
         GameObject.Find("HoverNoise").GetComponent<AudioSource>().Play();
     }
 
-    IEnumerator noiseThenLoadLevel() {
+    IEnumerator NoiseThenLoadLevel() {
         /**
          * Plays a gun noise and then loads the first level.
          */

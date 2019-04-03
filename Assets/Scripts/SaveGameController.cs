@@ -169,7 +169,7 @@ public class SaveGameController : MonoBehaviour
             GameObject newRobot = Instantiate(basicEnemyRobot);
             newRobot.transform.position = state.position;
             newRobot.transform.rotation = state.rotation;
-            newRobot.GetComponent<BasicRobotController>().setHealth(state.health);
+            newRobot.GetComponent<BasicRobotController>().SetHealth(state.health);
             newRobot.GetComponent<BasicRobotController>().state = state.state;
             newRobot.GetComponent<NavMeshAgent>().Warp(new Vector3(newRobot.transform.position.x, newRobot.transform.position.y + 1, newRobot.transform.position.z));
         }
