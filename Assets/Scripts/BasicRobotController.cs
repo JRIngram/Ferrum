@@ -121,6 +121,7 @@ public class BasicRobotController : MonoBehaviour
         animController.SetFloat(speedHashId, 0.0f);
         navMeshAgent.speed = 0.0f;
         navMeshAgent.isStopped = true;
+        navMeshAgent.SetDestination(target.position);
     }
 
     void Patrol()

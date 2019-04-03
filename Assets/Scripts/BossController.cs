@@ -134,7 +134,7 @@ public class BossController : MonoBehaviour
          * If boss has 0 or less hitpoints then the PlayDeath coroutine is started.
          */
         health = health - 50;
-        if (health <= 0)
+        if (health == 0)
         {
             spottedPlayer = false;
             navMeshAgent.isStopped = true;
